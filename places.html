@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places - TravelBuddy</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        /* Navbar styles */
+        /* Navbar */
+nav {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1512px;
+    margin: 0 auto;
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 82px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 0 10px;
+}
+
+.book-now {
+    background-color: #FF5403;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+        /* Hero section */
+        .hero {
+            background-image: url('banner.png');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        /* Gallery section */
+        .subtitle {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #19224D;
+        }
+
+        .image-gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            grid-gap: 60px; /* Gap between images */
+            margin: 20px 0;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #19224D;
+            padding: 40px 20px;
+            color: white;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo img {
+            width: 200px;
+        }
+
+        .footer-destinations, .footer-contact {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .footer-destinations h3, .footer-contact h3 {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .footer-destinations ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-destinations ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-destinations ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-logos {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-logo {
+            width: 30px;
+            height: 30px;
+        }
+
+        .copyright {
+    background: #000B3E; /* Background color */
+    width: 1512px; /* Fixed width */
+    height: 65px; /* Fixed height */
+    padding: 21px 0; /* Padding */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center the text */
+    align-items: center; /* Center vertically */
+    opacity: 1; /* Set opacity to 1 to make it visible */
+}
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar-container">
+            <div class="logo">
+                <img src="Logo.svg" alt="TravelBuddy Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="places.html">Places</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="book-now">Book Now</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Places</h1>
+        </section>
+
+        <!-- Subtitle -->
+        <div class="subtitle">
+            <p>The Best Places to Explore In Indonesia</p>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div class="image-gallery-container">
+            <div class="image-gallery">
+                <img src="p1.jpg" alt="Place 1">
+                <img src="p2.jpg" alt="Place 2">
+                <img src="p3.jpg" alt="Place 3">
+                <img src="p4.jpg" alt="Place 4">
+                <img src="p5.jpg" alt="Place 5">
+                <img src="p6.jpg" alt="Place 6">
+                <img src="p7.jpg" alt="Place 7">
+                <img src="p8.jpg" alt="Place 8">
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Logo.svg" alt="TravelBuddy Logo">
+            </div>
+            <div class="footer-destinations">
+                <h3>DISCOVER DESTINATION</h3>
+                <ul>
+                    <li><a href="#">Bali</a></li>
+                    <li><a href="#">Karimun Jawa</a></li>
+                    <li><a href="#">Jepara</a></li>
+                    <li><a href="#">Lombok</a></li>
+                    <li><a href="#">Yogyakarta</a></li>
+                    <li><a href="#">Flores</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>CONTACT US</h3>
+                <address>
+                    24 Shipley St. Arvada, 
+                    CO 80003
+                   <p>09378493810</p>
+                   <p>TravelBuddy@gmail.com</p>
+                </address>
+               <p>Social Media</p>
+                <div class="social-logos">
+                    
+                    <a href="#"><img src="facebook.jpeg" alt="Facebook" class="social-logo"></a>
+                    <a href="#"><img src="twitter.jpeg" alt="Twitter" class="social-logo"></a>
+                    <a href="#"><img src="instagram.jpeg" alt="Instagram" class="social-logo"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>@Copyright 2025 TravelBuddy</p>
+    </div>
+
+</body>
+</html>
