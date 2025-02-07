@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         .contact-container {
             max-width: 800px;
             margin: 0 auto;
@@ -111,6 +122,23 @@
             align-items: flex-start; 
             margin-top: 20px; 
         }
+
+        .notification {
+            margin-top: 20px;
+            padding: 10px;
+            color: white;
+            background-color: #FF5403;
+            border-radius: 5px;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            display: none;
+            animation: slideIn 0.5s ease-in-out forwards;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -131,7 +159,6 @@
         </div>
     </nav>
 
-    <!-- Hero Banner Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Contact Us</h1>
@@ -143,7 +170,6 @@
         <h2>Our Location</h2>
         <div id="map"></div>
 
-        <!-- Get In Touch Section -->
         <div class="get-in-touch">Get In Touch</div>
         <textarea class="message-box" placeholder="Enter the message"></textarea>
 
@@ -154,16 +180,17 @@
 
         <div class="contact-info-container">
             <button class="btn-contact">Send Message</button>
+            <div class="notification" id="notification" style="display: none;"></div>
             <div class="contact-info">
-                <img src="homelogo.png" alt="Location Logo"> <!-- Use relative path -->
+                <img src="homelogo.png" alt="Location Logo">
                 <p>Semarang, Jawa Tengah</p>
             </div>
             <div class="contact-info">
-                <img src="phonelogo.png" alt="Phone Logo"> <!-- Use relative path -->
+                <img src="phonelogo.png" alt="Phone Logo">
                 <p>(024) 123981240</p>
             </div>
             <div class="contact-info">
-                <img src="maillogo.png" alt="Email Logo"> <!-- Use relative path -->
+                <img src="maillogo.png" alt="Email Logo">
                 <p>TravelBuddy@gmail.com</p>
             </div>
         </div>
@@ -195,7 +222,6 @@
                 </address>
                <p>Social Media</p>
                 <div class="social-logos">
-                    
                     <a href="#"><img src="facebook.jpeg" alt="Facebook" class="social-logo"></a>
                     <a href="#"><img src="twitter.jpeg" alt="Twitter" class="social-logo"></a>
                     <a href="#"><img src="instagram.jpeg" alt="Instagram" class="social-logo"></a>
@@ -210,18 +236,42 @@
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // map
-        const map = L.map('map').setView([-8.409518, 115.188919], 10); // Coordinates for Bali
+        const map = L.map('map').setView([-8.409518, 115.188919], 10);
 
-        // Add OpenStreetMap tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap contributors'
         }).addTo(map);
 
-        // for bali
         const marker = L.marker([-8.409518, 115.188919]).addTo(map);
         marker.bindPopup('<b>TravelBuddy!</b><br>Welcome to Bali.').openPopup();
+
+        document.querySelector('.btn-contact').addEventListener('click', function() {
+            const emailInput = document.querySelector('.input-box[type="email"]');
+            const notification = document.getElementById('notification');
+            
+            notification.style.display = 'none';
+            notification.textContent = '';
+
+            const emailValue = emailInput.value;
+            if (!emailValue.includes('@')) {
+                notification.textContent = 'Wrong Email Address';
+                notification.style.backgroundColor = '#e74c3c';
+                notification.style.display = 'block';
+                return;
+            }
+
+            notification.textContent = 'Thank you! Your submission has been sent.';
+            notification.style.backgroundColor = '#2ecc71';
+            notification.style.display = 'block';
+
+            emailInput.value = '';
+            document.querySelector('.message-box').value = '';
+
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 3000);
+        });
     </script>
 
 </body>

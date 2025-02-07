@@ -15,6 +15,11 @@
             <div class="logo">
                 <img src="Logo.svg" alt="TravelBuddy Logo">
             </div>
+
+            <div class="hamburger-menu" id="hamburger-menu">
+                &#9776; <!-- Unicode for the hamburger icon (☰) -->
+            </div>
+           
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
@@ -346,6 +351,25 @@
             behavior: 'smooth' // Smooth scroll
         });
     };
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.getElementById("hamburger-menu");
+        const navLinks = document.getElementById("nav-links");
+
+        hamburger.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+        });
+
+       
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+    });
 </script>
 
 </body>
